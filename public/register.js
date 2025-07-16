@@ -9,7 +9,7 @@ form.addEventListener("submit", async (e) => {
   const nome = document.getElementById("nome").value;
   const valor = parseFloat(document.getElementById("valor").value);
 
-  const res = await fetch("/api/purchase", {
+  const res = await fetch("/api/purchase.js", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ nome, valor }),
@@ -26,7 +26,7 @@ form.addEventListener("submit", async (e) => {
 
 // Carregar lista de pessoas
 async function carregarPessoas() {
-  const res = await fetch("/api/ranking");
+  const res = await fetch("/api/ranking.js");
   const data = await res.json();
   select.innerHTML = "";
   data.forEach(p => {
