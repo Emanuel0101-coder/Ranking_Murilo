@@ -1,0 +1,171 @@
+/* ===== Estilo Geral ===== */
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('PERFIL2.png') center center fixed no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  filter: brightness(1) saturate(1.2);
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 30px 0 20px;
+  text-shadow: 2px 2px 5px black;
+}
+
+/* ===== Container do Ranking ===== */
+#lista {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ===== POS 1: maior e destacado ===== */
+.pos-1 {
+  width: 90%;
+  font-size: 2.4rem;
+  padding: 20px 35px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(0, 127, 0, 0.8), rgba(0, 204, 0, 0.8));
+  border: 4px solid gold;
+  box-shadow: 0 0 30px 8px gold;
+  color: white;
+  position: relative;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+  animation: pulse 2s infinite;
+  z-index: 10;
+  text-align: center;
+  font-weight: 900;
+  margin: 0;
+}
+
+/* Adiciona numeração na frente do nome */
+.pos-1 .nome::before {
+  content: "1º ";
+  font-weight: 900;
+}
+
+/* ===== Wrapper para TOP 2 e 3 lado a lado ===== */
+.top2-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 90%;
+  max-width: 900px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* ===== POS 2 e 3 ===== */
+.top2-wrapper .pos-2,
+.top2-wrapper .pos-3 {
+  flex: 1 1 45%;
+  font-size: 1.8rem;
+  padding: 16px 25px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(106, 27, 154, 0.8), rgba(142, 36, 170, 0.8));
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px 8px #8e24aa;
+  color: white;
+  text-shadow: 0 0 12px black;
+  font-weight: 700;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+/* Adiciona numeração para top 2 e 3 */
+.top2-wrapper .pos-2 .nome::before {
+  content: "2º ";
+  font-weight: 700;
+}
+.top2-wrapper .pos-3 .nome::before {
+  content: "3º ";
+  font-weight: 700;
+}
+
+/* ===== Demais colocados (4 em diante) ===== */
+.pos-4, .pos-5, .pos-6, .pos-7 {
+  width: 70%;
+  font-size: 1.3rem;
+  padding: 12px 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #b71c1c, #d32f2f);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 8px 2px #d32f2f;
+  color: white;
+  text-shadow: 0 0 8px black;
+  font-weight: 600;
+  margin: 8px auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Numeração para demais itens via JS, se quiser pode adicionar aqui também */
+
+.pos-4 .nome::before,
+.pos-5 .nome::before,
+.pos-6 .nome::before,
+.pos-7 .nome::before {
+  /* Se quiser, pode adicionar numeração também aqui */
+}
+
+/* ===== Estilos para nome menor nos TOP 1, 2 e 3 ===== */
+.pos-1 .nome,
+.top2-wrapper .pos-2 .nome,
+.top2-wrapper .pos-3 .nome {
+  font-size: 1.9rem;
+}
+
+/* ===== Valor gasto em amarelo-esverdeado nos TOP 1, 2 e 3 ===== */
+.pos-1 .total-highlight,
+.top2-wrapper .pos-2 .total-highlight,
+.top2-wrapper .pos-3 .total-highlight {
+  display: block;
+  color: #d4ff40;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-top: 4px;
+  text-shadow: 0 0 8px #b0d900;
+}
+
+/* ===== Animações ===== */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px 7px gold;
+  }
+  50% {
+    box-shadow: 0 0 35px 15px #fff700;
+  }
+}
+
+@keyframes crownBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-7px) rotate(-3deg);
+  }
+}

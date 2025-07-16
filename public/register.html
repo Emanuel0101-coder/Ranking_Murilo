@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar Consumo</title>
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>  Registrar Consumo</h1>
+    <form id="form">
+  <label>
+    Nome:
+    <input type="text" id="nome" required />
+  </label>
+  <label>
+    Valor gasto (R$):
+    <input type="number" id="valor" min="1" step="0.01" required />
+  </label>
+  <button type="submit">Adicionar</button>
+
+  <!-- Dentro do form agora -->
+  <div id="remover-container">
+    <label>
+      Pessoas registradas:
+      <select id="select-pessoas"></select>
+    </label>
+    <button type="button" id="btn-excluir">Excluir</button>
+  </div>
+</form>
+<p id="status"></p>
+  <script src="register.js" defer></script>
+</body>
+</html>
