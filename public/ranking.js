@@ -47,9 +47,7 @@ function render(ranking) {
   }
 }
 
-// 1ª carga
-fetch("/api/ranking").then(r => r.json()).then(render);
-
-// ❌ SSE não funciona no Vercel (serverless), então remova ou substitua por polling se quiser atualização automática
-// const evtSource = new EventSource("/events");
-// evtSource.onmessage = (e) => render(JSON.parse(e.data));
+// 1ª carga + atualização por SSE
+fetch("/ranking").then(r => r.json()).then(render);
+const evtSource = new EventSource("/events");
+evtSource.onmessage = (e) => render(JSON.parse(e.data));
